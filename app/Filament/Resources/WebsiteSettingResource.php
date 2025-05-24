@@ -18,29 +18,61 @@ class WebsiteSettingResource extends Resource
 {
     protected static ?string $model = WebsiteSetting::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-wrench-screwdriver';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required(),
-                Forms\Components\Textarea::make('description'),
-                Forms\Components\Textarea::make('footer'),
-                Forms\Components\Textarea::make('google'),
-                Forms\Components\TextInput::make('author'),
-                Forms\Components\Textarea::make('keywords'),
-                Forms\Components\Textarea::make('tags'),
-                Forms\Components\TextInput::make('url'),
-                Forms\Components\FileUpload::make('website_logo')->image(),
-                Forms\Components\FileUpload::make('fav_icon')->image(),
-                Forms\Components\Textarea::make('address'),
-                Forms\Components\TextInput::make('email')->email(),
-                Forms\Components\TextInput::make('phone'),
+                Forms\Components\TextInput::make('name')
+                    ->required()
+                    ->columnSpanFull(),
+
+                Forms\Components\Textarea::make('description')
+                    ->columnSpanFull(),
+
+                Forms\Components\Textarea::make('footer')
+                    ->columnSpanFull(),
+
+                Forms\Components\Textarea::make('google')
+                    ->columnSpanFull(),
+
+                Forms\Components\TextInput::make('author')
+                    ->columnSpanFull(),
+
+                Forms\Components\Textarea::make('keywords')
+                    ->columnSpanFull(),
+
+                Forms\Components\Textarea::make('tags')
+                    ->columnSpanFull(),
+
+                Forms\Components\TextInput::make('url')
+                    ->columnSpanFull(),
+
+                Forms\Components\FileUpload::make('website_logo')
+                    ->image()
+                    ->columnSpanFull(),
+
+                Forms\Components\FileUpload::make('fav_icon')
+                    ->image()
+                    ->columnSpanFull(),
+
+                Forms\Components\Textarea::make('address')
+                    ->columnSpanFull(),
+
+                Forms\Components\TextInput::make('email')
+                    ->email()
+                    ->columnSpanFull(),
+
+                Forms\Components\TextInput::make('phone')
+                    ->columnSpanFull(),
+
                 Forms\Components\Textarea::make('contact_spam_keywords')
-                    ->helperText('Enter as JSON array, e.g. ["spam", "ads"]'),
+                    ->helperText('Enter as JSON array, e.g. ["spam", "ads"]')
+                    ->columnSpanFull(),
             ]);
     }
+
 
     public static function table(Table $table): Table
     {
@@ -81,6 +113,11 @@ class WebsiteSettingResource extends Resource
     public static function canDelete(Model $record): bool
     {
         return false;
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return 8;
     }
 
     public static function getEloquentQuery(): Builder
