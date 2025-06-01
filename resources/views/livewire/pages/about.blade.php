@@ -6,7 +6,7 @@
                 <span class="title">Choose your meal size</span>
             </div>
             <div class="grid-layout"
-                 data-grid="grid-4">
+                 data-grid="grid-5">
                 <!-- card product 1 -->
                 <div class="card-product text-center none-hover fl-item">
                     <div class="card-product-wrapper aspect-1 rounded-0">
