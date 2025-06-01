@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Pages;
 
+use App\Models\HomepageSetting;
 use Livewire\Component;
 
 class Home extends Component
@@ -9,6 +10,7 @@ class Home extends Component
 
     public function render()
     {
-        return view('livewire.pages.home');
+        $homepage = HomepageSetting::first();
+        return view('livewire.pages.home',compact('homepage'))->layout('layouts.app');
     }
 }

@@ -2,19 +2,24 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Imports\ProductImporter;
 use App\Filament\Resources\ProductResource\Pages;
 use App\Filament\Resources\ProductResource\RelationManagers;
+use App\Imports\ProductImport;
 use App\Models\Product;
+use Filament\Tables\Actions\ImportAction;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-use Filament\Forms\Components\{Grid, Section, TextInput, Textarea, Toggle, FileUpload, Select, Repeater};
+use Filament\Forms\Components\{Grid, RichEditor, Section, TextInput, Textarea, Toggle, FileUpload, Select, Repeater};
 use Filament\Tables\Columns\{TextColumn, ImageColumn, IconColumn, TagsColumn};
+use pxlrbt\FilamentExcel\Actions\Tables\ExportAction;
 
 class ProductResource extends Resource
 {
@@ -77,7 +82,7 @@ class ProductResource extends Resource
             Section::make('Descriptions & Content')->schema([
                 Grid::make(1)->schema([
                     Textarea::make('description'),
-                    Textarea::make('main_content'),
+                    RichEditor::make('main_content'),
                 ]),
             ]),
 
@@ -192,12 +197,19 @@ class ProductResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
+                ExportAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                    ExportAction::make(),
                 ]),
+            ])
+            ->headerActions([
+                ImportAction::make()
+                    ->importer(ProductImporter::class)
             ]);
+
     }
 
 

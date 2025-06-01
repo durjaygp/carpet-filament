@@ -2,19 +2,21 @@
     <!-- Slider -->
     <section class="tf-sw-slideshow slider-effect-fade slider-video position-relative slider-ceramic">
         <div class="wrap-slider">
-            <img class="lazyload" data-src="{{asset('assets/banner.webp')}}" src="{{asset('assets/banner.webp')}}" alt="fashion-slideshow">
+            <img class="lazyload" data-src="{{asset('storage/'.$homepage->header_image)}}" src="{{asset($homepage->header_image)}}" alt="{{$homepage->header_title .$homepage->header_second_line_title}}">
             <div class="box-content">
                 <div class="container">
                     <div class="text-end">
                         <h1 class="fade-item fade-item-2 heading text-white playfair-text">
-                            Providing you
-                            <br> Quality Carpets & Rugs
+                            {{$homepage->header_title}}
+                            <br> {{$homepage->header_second_line_title}}
                         </h1>
-                        <p class="fade-item fade-item-1 subheading text-white fw-5 d-block mb-0">Wholesale to the public</p>
+                        <p class="fade-item fade-item-1 subheading text-white fw-5 d-block mb-0">{{$homepage->header_small_paragraph}}</p>
                         <h5 class=" text-white ">Call <a class="text-white" href="tel:1-866-732-2966">1-866-732-2966</a> / <a class="text-white" href="tel:732-577-1496">732-577-1496</a></h5>
 
 
-                        <a href="#" class="fade-item fade-item-3 tf-btn btn-light-icon animate-hover-btn btn-xl radius-60"><span>Shop collection</span><i class="icon icon-arrow-right"></i></a>
+                        <a href="{{$homepage->header_button_url}}"
+                           class="fade-item fade-item-3 tf-btn btn-light-icon animate-hover-btn btn-xl radius-60"><span>
+                                {{$homepage->header_button}}</span><i class="icon icon-arrow-right"></i></a>
 
                     </div>
 

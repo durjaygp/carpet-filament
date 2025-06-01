@@ -14,6 +14,6 @@ class Footer extends Component
 
     public function render()
     {
-        return view('livewire.components.footer');
+        return view('livewire.components.footer')->layout('layouts.app');
     }
 }

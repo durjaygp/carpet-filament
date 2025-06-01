@@ -72,7 +72,7 @@
                                 <a href="#" class="item-link">Installation & Care</a>
                             </li>
                             <li class="menu-item">
-                                <a href="blog.html" class="item-link">Blog</a>
+                                <a class="item-link" href="/blog" wire:navigate>Blog</a>
                             </li>
                         </ul>
                     </nav>

@@ -30,7 +30,8 @@
 
     @livewire('components.navbar')
 
-    @livewire('spa-router')
+{{--    @livewire('spa-router')--}}
+    {{ $slot }}
 
     @livewire('components.footer')
 </div>
